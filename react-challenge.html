@@ -23,7 +23,6 @@
     // No need to change anything ABOVE this line ^
 
 
-
       class App extends React.Component{
         constructor(props){
           super(props)
@@ -35,12 +34,14 @@
 
         handleMoodOptions = () => {
           let randomIndex = Math.floor(Math.random() * this.state.moods.length )
-          this.setState({ currentMood: moods[randomIndex] })
+          this.setState({ currentMood: this.state.moods[randomIndex] })
+          //moods needed to have a this.state added to it
         }
-
+        
         render(){
-          return(
-
+          return( 
+          //missing <> and </>
+          <>         
               <h1>Welcome to the Mood Meter App</h1>
 
               <h3>Mood Options:</h3>
@@ -48,16 +49,14 @@
               <div style={{ fontSize: "40px", height: "50px"}}>
                 { this.state.currentMood }
               </div>
-
-              <button onClick={ handleMoodOptions }>
+              {/*handelMoodOptions needed to have a this.state added to it*/}
+              <button onClick={ this.handleMoodOptions }>
                 Click Here For Next Mood option
               </button>
-
+          </>
           )
         }
       }
-
-
 
 
 
